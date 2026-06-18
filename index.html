@@ -1,41 +1,428 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roy Hawu</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f5f7fa;
-            color: #1f2937;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roy Hawu</title>
+<meta name="description" content="Roy Hawu — real estate, photography &amp; video production, and music. Based in Bali, Indonesia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --espresso: #3d2f26;
+    --brown: #6b4f3f;
+    --taupe: #a08d7d;
+    --grey: #8a857f;
+    --cream: #f4f0e9;
+    --paper: #faf7f1;
+    --sage: #7d8a6f;
+    --sage-deep: #5f6b53;
+    --line: #ddd3c5;
+    --shadow: rgba(61, 47, 38, 0.10);
+  }
 
-        .container {
-            padding: 2rem;
-        }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
+  html { scroll-behavior: smooth; }
 
-        p {
-            font-size: 1.2rem;
-            color: #6b7280;
-        }
-    </style>
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--paper);
+    color: var(--espresso);
+    line-height: 1.6;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 32px; }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    padding: 110px 0 70px;
+    text-align: center;
+  }
+
+  .avatar {
+    width: 168px;
+    height: 168px;
+    border-radius: 50%;
+    margin: 0 auto 38px;
+    background: linear-gradient(150deg, var(--brown), var(--espresso));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cream);
+    font-family: 'Fraunces', serif;
+    font-size: 56px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    box-shadow: 0 18px 40px var(--shadow);
+    border: 5px solid var(--paper);
+    outline: 1px solid var(--line);
+  }
+
+  .eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--sage-deep);
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
+
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(48px, 9vw, 78px);
+    font-weight: 500;
+    line-height: 1.02;
+    letter-spacing: -0.01em;
+    color: var(--espresso);
+    margin-bottom: 26px;
+  }
+
+  .bio {
+    max-width: 540px;
+    margin: 0 auto;
+    font-size: 18px;
+    color: var(--brown);
+    line-height: 1.75;
+  }
+
+  .bio .place {
+    display: block;
+    margin-top: 22px;
+    font-size: 14px;
+    letter-spacing: 0.04em;
+    color: var(--grey);
+  }
+
+  .bio .place::before {
+    content: "";
+    display: inline-block;
+    width: 28px;
+    height: 1px;
+    background: var(--taupe);
+    vertical-align: middle;
+    margin-right: 12px;
+  }
+
+  /* ---------- Divider ---------- */
+  .rule {
+    width: 100%;
+    height: 1px;
+    background: var(--line);
+    max-width: 880px;
+    margin: 0 auto;
+  }
+
+  /* ---------- Contact ---------- */
+  .contact {
+    padding: 80px 0 90px;
+  }
+
+  .section-head {
+    text-align: center;
+    margin-bottom: 46px;
+  }
+
+  .section-head .eyebrow { margin-bottom: 14px; }
+
+  .section-head h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 36px;
+    font-weight: 500;
+    color: var(--espresso);
+  }
+
+  .section-head p {
+    margin-top: 12px;
+    color: var(--grey);
+    font-size: 16px;
+  }
+
+  form {
+    max-width: 580px;
+    margin: 0 auto;
+  }
+
+  .field { margin-bottom: 22px; }
+
+  label {
+    display: block;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--brown);
+    font-weight: 600;
+    margin-bottom: 9px;
+  }
+
+  input, select, textarea {
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: var(--espresso);
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 14px 16px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  input::placeholder, textarea::placeholder { color: #b6ada1; }
+
+  input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--sage);
+    box-shadow: 0 0 0 3px rgba(125, 138, 111, 0.16);
+  }
+
+  select {
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%236b4f3f' d='M6 8 0 0h12z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 18px center;
+    padding-right: 44px;
+    cursor: pointer;
+  }
+
+  textarea { resize: vertical; min-height: 130px; }
+
+  .btn {
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--cream);
+    background: var(--espresso);
+    border: none;
+    border-radius: 10px;
+    padding: 16px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    margin-top: 6px;
+  }
+
+  .btn:hover { background: var(--brown); }
+  .btn:active { transform: translateY(1px); }
+
+  .form-note {
+    text-align: center;
+    font-size: 13px;
+    color: var(--grey);
+    margin-top: 18px;
+  }
+
+  /* ---------- Services ---------- */
+  .services {
+    padding: 70px 0 80px;
+  }
+
+  .services .eyebrow {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .svc-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+
+  .svc {
+    display: block;
+    text-decoration: none;
+    background: var(--cream);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 28px 24px;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  }
+
+  .svc:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px var(--shadow);
+    border-color: var(--taupe);
+  }
+
+  .svc .num {
+    font-family: 'Fraunces', serif;
+    font-size: 13px;
+    color: var(--sage-deep);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+
+  .svc h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 21px;
+    font-weight: 500;
+    color: var(--espresso);
+    margin: 10px 0 6px;
+  }
+
+  .svc p {
+    font-size: 13.5px;
+    color: var(--grey);
+    line-height: 1.55;
+  }
+
+  .svc .arrow {
+    display: inline-block;
+    margin-top: 16px;
+    font-size: 13px;
+    color: var(--brown);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  .svc:hover .arrow { color: var(--sage-deep); }
+
+  /* ---------- Footer ---------- */
+  footer {
+    background: var(--espresso);
+    color: var(--cream);
+    padding: 54px 0 46px;
+    text-align: center;
+  }
+
+  footer .name {
+    font-family: 'Fraunces', serif;
+    font-size: 26px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    margin-bottom: 8px;
+  }
+
+  footer .loc {
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--taupe);
+    margin-bottom: 26px;
+  }
+
+  footer .copy {
+    font-size: 12.5px;
+    color: rgba(244, 240, 233, 0.55);
+    letter-spacing: 0.02em;
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 680px) {
+    .hero { padding: 80px 0 56px; }
+    .avatar { width: 138px; height: 138px; font-size: 46px; }
+    .svc-grid { grid-template-columns: 1fr; }
+    .wrap { padding: 0 24px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
+  }
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to Roy Hawu's Page</h1>
-        <p>This website is currently under construction.</p>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="wrap">
+      <div class="avatar" aria-label="Roy Hawu headshot placeholder">RH</div>
+      <p class="eyebrow">Real Estate · Productions · Music</p>
+      <h1>Roy Hawu</h1>
+      <p class="bio">
+        A multidisciplinary creative working across real estate, visual production, and music.
+        Roy brings a photographer's eye and a storyteller's instinct to every project — whether
+        listing a home, directing a shoot, or writing a song. Now based in Bali, Indonesia, after
+        years rooted in Los Angeles, California.
+        <span class="place">Bali, Indonesia</span>
+      </p>
     </div>
+  </header>
+
+  <div class="rule"></div>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Get in touch</p>
+        <h2>Contact me</h2>
+        <p>Tell me a little about what you have in mind.</p>
+      </div>
+
+      <form action="mailto:hello@royhawu.com" method="post" enctype="text/plain">
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required>
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required>
+        </div>
+
+        <div class="field">
+          <label for="service">Service</label>
+          <select id="service" name="service" required>
+            <option value="" disabled selected>Select a service</option>
+            <option value="Real Estate">Real Estate</option>
+            <option value="Productions">Productions</option>
+            <option value="Music">Music</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Write your message here…" required></textarea>
+        </div>
+
+        <button type="submit" class="btn">Send me a message</button>
+        <p class="form-note">I'll get back to you as soon as I can.</p>
+      </form>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <!-- SERVICES -->
+  <section class="services">
+    <div class="wrap">
+      <p class="eyebrow">Explore the work</p>
+      <div class="svc-grid">
+        <a class="svc" href="/real-estate.html">
+          <span class="num">01</span>
+          <h3>Real Estate</h3>
+          <p>Listings and property representation with a visual edge.</p>
+          <span class="arrow">View &rarr;</span>
+        </a>
+        <a class="svc" href="/productions.html">
+          <span class="num">02</span>
+          <h3>Productions</h3>
+          <p>Photography, drone work, videography, and editing.</p>
+          <span class="arrow">View &rarr;</span>
+        </a>
+        <a class="svc" href="/music.html">
+          <span class="num">03</span>
+          <h3>Music</h3>
+          <p>Original Christian music and music production.</p>
+          <span class="arrow">View &rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap">
+      <p class="name">Roy Hawu</p>
+      <p class="loc">Bali, Indonesia</p>
+      <p class="copy">&copy; 2025 Roy Hawu. All rights reserved.</p>
+    </div>
+  </footer>
+
 </body>
 </html>
