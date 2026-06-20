@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Roy Hawu</title>
-<meta name="description" content="Roy Hawu — real estate, photography &amp; video production, and music. Based in Bali, Indonesia.">
+<meta name="description" content="Roy Hawu — art &amp; visual production, and music. Based in Bali, Indonesia.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -60,6 +60,7 @@
     box-shadow: 0 18px 40px var(--shadow);
     border: 5px solid var(--paper);
     outline: 1px solid var(--line);
+    object-fit: cover;
   }
 
   .eyebrow {
@@ -228,8 +229,10 @@
 
   .svc-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 18px;
+    max-width: 620px;
+    margin: 0 auto;
   }
 
   .svc {
@@ -238,7 +241,7 @@
     background: var(--cream);
     border: 1px solid var(--line);
     border-radius: 12px;
-    padding: 28px 24px;
+    padding: 30px 26px;
     transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
   }
 
@@ -258,14 +261,14 @@
 
   .svc h3 {
     font-family: 'Fraunces', serif;
-    font-size: 21px;
+    font-size: 22px;
     font-weight: 500;
     color: var(--espresso);
     margin: 10px 0 6px;
   }
 
   .svc p {
-    font-size: 13.5px;
+    font-size: 14px;
     color: var(--grey);
     line-height: 1.55;
   }
@@ -315,7 +318,7 @@
   @media (max-width: 680px) {
     .hero { padding: 80px 0 56px; }
     .avatar { width: 138px; height: 138px; font-size: 46px; }
-    .svc-grid { grid-template-columns: 1fr; }
+    .svc-grid { grid-template-columns: 1fr; max-width: 380px; }
     .wrap { padding: 0 24px; }
   }
 
@@ -331,12 +334,12 @@
   <header class="hero">
     <div class="wrap">
       <div class="avatar" aria-label="Roy Hawu headshot placeholder">RH</div>
-      <p class="eyebrow">Real Estate · Productions · Music</p>
+      <p class="eyebrow">Art &amp; Production · Music</p>
       <h1>Roy Hawu</h1>
       <p class="bio">
-        A multidisciplinary creative working across real estate, visual production, and music.
-        Roy brings a photographer's eye and a storyteller's instinct to every project — whether
-        listing a home, directing a shoot, or writing a song. Now based in Bali, Indonesia, after
+        A multidisciplinary creative working across visual art, production, and music.
+        Roy brings a photographer's eye and a storyteller's instinct to every project —
+        whether directing a shoot or writing a song. Now based in Bali, Indonesia, after
         years rooted in Los Angeles, California.
         <span class="place">Bali, Indonesia</span>
       </p>
@@ -369,8 +372,7 @@
           <label for="service">Service</label>
           <select id="service" name="service" required>
             <option value="" disabled selected>Select a service</option>
-            <option value="Real Estate">Real Estate</option>
-            <option value="Productions">Productions</option>
+            <option value="Art &amp; Production">Art &amp; Production</option>
             <option value="Music">Music</option>
           </select>
         </div>
@@ -393,20 +395,14 @@
     <div class="wrap">
       <p class="eyebrow">Explore the work</p>
       <div class="svc-grid">
-        <a class="svc" href="/real-estate.html">
+        <a class="svc" href="/productions">
           <span class="num">01</span>
-          <h3>Real Estate</h3>
-          <p>Listings and property representation with a visual edge.</p>
-          <span class="arrow">View &rarr;</span>
-        </a>
-        <a class="svc" href="/productions.html">
-          <span class="num">02</span>
-          <h3>Productions</h3>
+          <h3>Art &amp; Production</h3>
           <p>Photography, drone work, videography, and editing.</p>
           <span class="arrow">View &rarr;</span>
         </a>
-        <a class="svc" href="/music.html">
-          <span class="num">03</span>
+        <a class="svc" href="/music">
+          <span class="num">02</span>
           <h3>Music</h3>
           <p>Original Christian music and music production.</p>
           <span class="arrow">View &rarr;</span>
