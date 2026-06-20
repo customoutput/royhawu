@@ -355,7 +355,7 @@
         <p>Tell me a little about what you have in mind.</p>
       </div>
 
-      <form action="mailto:hello@royhawu.com" method="post" enctype="text/plain">
+      <form action="https://formspree.io/f/xpqevvzz" method="POST">
         <div class="field">
           <label for="name">Name</label>
           <input type="text" id="name" name="name" placeholder="Your name" required>
@@ -365,6 +365,9 @@
           <label for="email">Email</label>
           <input type="email" id="email" name="email" placeholder="you@example.com" required>
         </div>
+
+        <input type="hidden" name="_subject" value="New inquiry from royhawu.com">
+        <input type="text" name="_gotcha" style="display:none">
 
         <div class="field">
           <label for="service">Service</label>
